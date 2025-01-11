@@ -1,4 +1,4 @@
-# Copyright 2023 Bahman Movaqar
+# Copyright 2025 Bahman Movaqar
 #
 # This file is part of StockPerson-Scala.
 #
