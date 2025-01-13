@@ -20,7 +20,7 @@ jobs:
       - name: Install dependencies
         run: >- 
             zypper --non-interactive refresh
-            && zypper --non-interactive install java-21-openjdk-devel zip unzip
+            && zypper --non-interactive install java-21-openjdk-devel zip unzip git
             && { source /etc/profile || true; }
             && { curl -s "https://get.sdkman.io" | bash; }
             && { source "$HOME/.sdkman/bin/sdkman-init.sh" || true; }
@@ -30,6 +30,12 @@ jobs:
         run: >-
           make compile
           
-      - name: Test
+      - name: Test with coverage report
         run: >-
-          make test
+          make test-with-coverage
+
+      - name: Upload the coverage report
+        uses: codecov/codecov-action@v4        
+        with:
+          fail_ci_if_error: true
+          token: ${{ secrets.CODECOV_TOKEN }}
