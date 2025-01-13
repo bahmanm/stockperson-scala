@@ -10,20 +10,19 @@ jobs:
   build_test:
     runs-on: ubuntu-latest
     container:
-      image: bdockerimg/sdkman.bmakelib:opensuse-tumbleweed
+      image: bdockerimg/bmakelib:0.8.0--opensuse-tumbleweed
 
     steps:
       - uses: actions/checkout@v4
     
       - name: Install dependencies
-        uses: docker://bdockerimg/sdkman.bmakelib:opensuse-tumbleweed
-        with:
-          entrypoint: /entrypoint
-          args: >-
+        run: >-
             zypper --non-interactive refresh
-                && zypper --non-interactive install java-21-openjdk-devel
-                && { source /etc/profile || true; }
-                && sdk install sbt     
+              && zypper --non-interactive install java-21-openjdk-devel
+              && { source /etc/profile || true; }
+              && curl -s "https://get.sdkman.io" | bash
+              && source "$HOME/.sdkman/bin/sdkman-init.sh"
+              && sdk install sbt
 
       - name: Run check
         run: make test
