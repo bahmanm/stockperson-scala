@@ -17,7 +17,7 @@ jobs:
       - name: Install dependencies
         run: >- 
             zypper --non-interactive refresh
-            && zypper --non-interactive install java-21-openjdk-devel unzip
+            && zypper --non-interactive install java-21-openjdk-devel zip unzip
             && { source /etc/profile || true; }
             && { curl -s "https://get.sdkman.io" | bash; }
             && { source "$HOME/.sdkman/bin/sdkman-init.sh" || true; }
