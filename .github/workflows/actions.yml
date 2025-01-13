@@ -21,7 +21,7 @@ jobs:
               && zypper --non-interactive install java-21-openjdk-devel
               && { source /etc/profile || true; }
               && { curl -s "https://get.sdkman.io" | bash; }
-              && source "$HOME/.sdkman/bin/sdkman-init.sh"
+              && { source "$HOME/.sdkman/bin/sdkman-init.sh" || true; }
               && sdk install sbt
 
       - name: Run check
