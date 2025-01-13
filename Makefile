@@ -57,6 +57,13 @@ test : sbt( test )
 
 ####################################################################################################
 
+.PHONY : test-with-coverage
+
+test-with-coverage :
+	@sbt coverage test coverageReport
+
+####################################################################################################
+
 .PHONY : compile
 
 compile : sbt( compile )
