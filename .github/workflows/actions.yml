@@ -10,6 +10,9 @@ jobs:
     runs-on: ubuntu-latest
     container:
       image: bdockerimg/bmakelib:0.8.0--opensuse-tumbleweed
+    defaults:
+      run:
+        shell: bash        
 
     steps:
       - uses: actions/checkout@v4
