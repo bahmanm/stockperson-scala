@@ -1,4 +1,4 @@
-name: Build & Test (Makefile and SBT)
+name: Build & Test
 
 on:
   push:
@@ -20,7 +20,7 @@ jobs:
             zypper --non-interactive refresh
               && zypper --non-interactive install java-21-openjdk-devel
               && { source /etc/profile || true; }
-              && curl -s "https://get.sdkman.io" | bash
+              && { curl -s "https://get.sdkman.io" | bash; }
               && source "$HOME/.sdkman/bin/sdkman-init.sh"
               && sdk install sbt
 
