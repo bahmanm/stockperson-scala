@@ -16,7 +16,8 @@ jobs:
       - uses: actions/checkout@v4
     
       - name: Install dependencies
-        with: 
+        uses: docker://bdockerimg/sdkman.bmakelib:opensuse-tumbleweed
+        with:
           entrypoint: /entrypoint
           args: >-
             zypper --non-interactive refresh
