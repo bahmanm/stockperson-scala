@@ -12,7 +12,7 @@ jobs:
       image: bdockerimg/bmakelib:0.8.0--opensuse-tumbleweed
     defaults:
       run:
-        shell: bash        
+        shell: bash -l {0}     
 
     steps:
       - uses: actions/checkout@v4
@@ -30,9 +30,7 @@ jobs:
           
       - name: Install SBT
         run: >-
-          source $HOME/.sdkman/bin/sdkman-init.sh 
-          || true 
-          && sdk install sbt
+          sdk install sbt
 
       - name: Run the tests
         run: make test
