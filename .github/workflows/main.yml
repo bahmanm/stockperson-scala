@@ -24,7 +24,7 @@ jobs:
             && { source /etc/profile || true; }
             && { curl -s "https://get.sdkman.io" | bash; }
             && { source "$HOME/.sdkman/bin/sdkman-init.sh" || true; }
-            sdk install sbt
+            && sdk install sbt
           
       - name: Compile
         run: >-
