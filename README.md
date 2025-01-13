@@ -1,8 +1,4 @@
-## sbt project compiled with Scala 3
+# StockPerson-Scala
+![Pipeline status](https://github.com/bahmanm/stockperson-scala/actions/workflows/main.yml/badge.svg)
 
-### Usage
-
-This is a normal sbt project. You can compile code with `sbt compile`, run it with `sbt run`, and `sbt console` will start a Scala 3 REPL.
-
-For more information on the sbt-dotty plugin, see the
-[scala3-example-project](https://github.com/scala/scala3-example-project/blob/main/README.md).
+[StockPerson](https://github.com/bahmanm/stockperson) using Scala 3
